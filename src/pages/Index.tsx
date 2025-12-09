@@ -269,6 +269,41 @@ const Index = () => {
         </div>
       </section>
 
+      {/* NEWSLETTER SIGNUP */}
+      <section className="border-b border-border bg-gradient-to-b from-background to-secondary/30">
+        <div className="container py-12 lg:py-16">
+          <div className="max-w-xl mx-auto text-center space-y-6">
+            <div className="space-y-3">
+              <span className="text-xs tracking-[0.25em] text-accent uppercase font-medium">
+                Stay in the Loop
+              </span>
+              <h2 className="text-2xl md:text-3xl font-display font-bold">
+                Get Show Updates & Exclusive Content
+              </h2>
+              <p className="text-muted-foreground">
+                Be the first to know about new shows, behind-the-scenes content, and special announcements.
+              </p>
+            </div>
+            
+            <form className="flex flex-col sm:flex-row gap-3">
+              <input
+                className="flex-1 bg-background border border-border rounded-full px-5 py-3 text-sm outline-none focus:border-accent transition-colors"
+                placeholder="Enter your email"
+                type="email"
+                required
+              />
+              <Button variant="hero" type="submit">
+                Subscribe
+              </Button>
+            </form>
+            
+            <p className="text-xs text-muted-foreground">
+              No spam. Unsubscribe anytime. Just laughs.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* CONTACT / BOOKING */}
       <section id="contact" className="bg-secondary/50">
         <div className="container py-12 lg:py-16">
