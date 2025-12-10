@@ -45,7 +45,7 @@ export function Footer() {
               <Facebook size={20} />
             </a>
             <a
-              href="https://youtube.com/@rozisfunny"
+              href="https://youtube.com/@paytheladyproduction"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-full bg-muted hover:bg-accent hover:text-accent-foreground transition-colors"
