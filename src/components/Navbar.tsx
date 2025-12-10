@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import logo from "@/assets/pay-the-lady-logo.png";
 
 const navLinks = [
   { href: "/#shows", label: "Shows" },
@@ -31,9 +32,11 @@ export function Navbar() {
       <div className="container flex items-center justify-between py-4">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3 group">
-          <span className="h-10 w-10 rounded-full bg-gradient-to-br from-accent to-wine flex items-center justify-center text-xl font-display font-bold text-foreground shadow-lg group-hover:scale-105 transition-transform">
-            R
-          </span>
+          <img 
+            src={logo} 
+            alt="Pay The Lady Productions" 
+            className="h-12 w-12 rounded-full object-cover group-hover:scale-105 transition-transform"
+          />
           <span className="font-display font-semibold text-lg tracking-wide hidden sm:block">
             ROZ WASHINGTON
           </span>
