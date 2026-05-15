@@ -182,9 +182,10 @@ const Index = () => {
               <Dialog>
                 <DialogTrigger asChild>
                   <button
+                    ref={heroPhotoRef}
                     type="button"
                     aria-label="Open full-size photo of Roz Washington on stage"
-                    className="relative slab bg-ink p-2 rotate-[2deg] hover:rotate-0 transition-transform duration-500 max-w-sm mx-auto lg:max-w-none block w-full cursor-zoom-in focus:outline-none focus-visible:ring-4 focus-visible:ring-explosion"
+                    className={`relative slab bg-ink p-2 rotate-[2deg] hover:rotate-0 transition-transform duration-500 max-w-sm mx-auto lg:max-w-none block w-full cursor-zoom-in focus:outline-none focus-visible:ring-4 focus-visible:ring-explosion ${tagsInView ? "in-view" : ""}`}
                   >
                     <picture>
                       {Object.entries(rozHeroStage.sources).map(([format, srcset]) => (
