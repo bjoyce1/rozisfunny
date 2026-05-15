@@ -208,7 +208,7 @@ const Index = () => {
                     allowFullScreen
                   />
                 </div>
-                <div className="p-4 border-t-3 border-ink">
+                <div className="p-4 border-t-2 border-ink">
                   <p className="font-display font-black uppercase text-xl">{c.title}</p>
                 </div>
               </div>

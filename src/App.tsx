@@ -2,30 +2,25 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import Index from "./pages/Index";
-import About from "./pages/About";
-import Shows from "./pages/Shows";
-import Videos from "./pages/Videos";
-import Press from "./pages/Press";
-import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
 function AnimatedRoutes() {
   const location = useLocation();
-
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Index />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/shows" element={<Shows />} />
-        <Route path="/videos" element={<Videos />} />
-        <Route path="/press" element={<Press />} />
-        <Route path="/contact" element={<Contact />} />
+        {/* Legacy multi-page routes now live as scroll sections on the home page */}
+        <Route path="/about" element={<Navigate to="/#about" replace />} />
+        <Route path="/shows" element={<Navigate to="/#tour" replace />} />
+        <Route path="/videos" element={<Navigate to="/#reel" replace />} />
+        <Route path="/press" element={<Navigate to="/#press" replace />} />
+        <Route path="/contact" element={<Navigate to="/#book" replace />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
