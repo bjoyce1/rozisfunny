@@ -1,1 +1,7 @@
 project_id = "vodoqbohbbbtwhoioejn"
+
+[functions.notify-booking]
+verify_jwt = false
+
+[functions.newsletter-subscribe]
+verify_jwt = false
