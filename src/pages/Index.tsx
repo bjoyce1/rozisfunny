@@ -55,7 +55,9 @@ const Index = () => {
     const link = document.createElement("link");
     link.rel = "preload";
     link.as = "image";
-    link.href = rozHeroStage;
+    link.href = rozHeroStage.img.src;
+    (link as any).imageSrcset = rozHeroStage.sources.webp ?? rozHeroStage.sources.avif;
+    (link as any).imageSizes = "(min-width: 1024px) 40vw, 100vw";
     link.fetchPriority = "high";
     document.head.appendChild(link);
     return () => {
