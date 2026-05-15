@@ -49,6 +49,15 @@ const Index = () => {
 
   useEffect(() => {
     document.title = "Roz Washington — Stand-Up Comedian & Radio Host";
+    const link = document.createElement("link");
+    link.rel = "preload";
+    link.as = "image";
+    link.href = rozHeroStage;
+    link.fetchPriority = "high";
+    document.head.appendChild(link);
+    return () => {
+      document.head.removeChild(link);
+    };
   }, []);
 
   const handleBooking = (e: React.FormEvent<HTMLFormElement>) => {
@@ -149,8 +158,12 @@ const Index = () => {
               <div className="relative slab bg-ink p-2 rotate-[2deg] hover:rotate-0 transition-transform duration-500 max-w-sm mx-auto lg:max-w-none">
                 <img
                   src={rozHeroStage}
-                  alt="Roz Washington performing stand-up on stage with microphone"
+                  alt="Roz Washington, Los Angeles stand-up comedian, headlining on stage in a gold sequined jumpsuit with microphone in hand under blue spotlights"
                   loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                  width="900"
+                  height="1200"
                   className="w-full aspect-[3/4] object-cover object-top"
                 />
                 <span className="absolute -top-4 -left-4 stamp text-xs md:text-sm rotate-[-8deg] z-10">
