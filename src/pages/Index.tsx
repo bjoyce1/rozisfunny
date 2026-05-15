@@ -4,6 +4,7 @@ import { toast } from "sonner";
 import { MobileTabBar } from "@/components/MobileTabBar";
 import rozHero from "@/assets/roz-hero.jpeg";
 import rozStage from "@/assets/roz-stage.jpeg";
+import rozHeroStage from "@/assets/roz-hero-stage.png";
 
 /* ---------------- Data ---------------- */
 
