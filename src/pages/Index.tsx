@@ -76,7 +76,7 @@ const Index = () => {
       <header className="sticky top-0 z-40 bg-bone/90 backdrop-blur border-b-2 border-ink pt-safe">
         <div className="container flex items-center justify-between py-3 md:py-4">
           <a href="#top" className="font-display font-black text-xl md:text-2xl tracking-tight">
-            ROZ<span className="text-explosion">.</span>COM
+            ROZISFUNNY<span className="text-explosion">.</span>COM
           </a>
           <nav className="hidden md:flex items-center gap-6 font-display text-sm md:text-base font-bold uppercase">
             {navItems.map((n) => (
