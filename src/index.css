@@ -81,6 +81,32 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
     position: relative;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+  }
+
+  /* Native-feel: smooth momentum scroll, no pull-to-refresh weirdness */
+  html, body {
+    overscroll-behavior: none;
+  }
+
+  /* Safe-area helpers */
+  .pb-safe { padding-bottom: max(env(safe-area-inset-bottom), 0px); }
+  .pt-safe { padding-top: max(env(safe-area-inset-top), 0px); }
+
+  /* Native-feel tap feedback on any interactive element */
+  a, button, [role="button"] {
+    -webkit-touch-callout: none;
+    user-select: none;
+    transition: transform 0.08s ease;
+  }
+  @media (hover: none) {
+    a:active, button:active, [role="button"]:active {
+      transform: scale(0.96);
+    }
   }
 
   /* Grain overlay — printed poster stock feel */
