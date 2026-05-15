@@ -6,7 +6,7 @@ import { Dialog, DialogContent, DialogTrigger, DialogTitle, DialogDescription } 
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import rozHero from "@/assets/roz-hero.jpeg";
 import rozStage from "@/assets/roz-stage.jpeg";
-import rozHeroStage from "@/assets/roz-hero-stage.png";
+import rozHeroStage from "@/assets/roz-hero-stage.png?w=480;800;1200;1600&format=avif;webp;png&as=picture";
 
 /* ---------------- Data ---------------- */
 
@@ -54,7 +54,9 @@ const Index = () => {
     const link = document.createElement("link");
     link.rel = "preload";
     link.as = "image";
-    link.href = rozHeroStage;
+    link.href = rozHeroStage.img.src;
+    (link as any).imageSrcset = rozHeroStage.sources.webp ?? rozHeroStage.sources.avif;
+    (link as any).imageSizes = "(min-width: 1024px) 40vw, 100vw";
     link.fetchPriority = "high";
     document.head.appendChild(link);
     return () => {
@@ -164,16 +166,21 @@ const Index = () => {
                     aria-label="Open full-size photo of Roz Washington on stage"
                     className="relative slab bg-ink p-2 rotate-[2deg] hover:rotate-0 transition-transform duration-500 max-w-sm mx-auto lg:max-w-none block w-full cursor-zoom-in focus:outline-none focus-visible:ring-4 focus-visible:ring-explosion"
                   >
-                    <img
-                      src={rozHeroStage}
-                      alt="Roz Washington, Los Angeles stand-up comedian, headlining on stage in a gold sequined jumpsuit with microphone in hand under blue spotlights"
-                      loading="eager"
-                      fetchPriority="high"
-                      decoding="async"
-                      width="900"
-                      height="1200"
-                      className="w-full aspect-[3/4] object-cover object-top"
-                    />
+                    <picture>
+                      {Object.entries(rozHeroStage.sources).map(([format, srcset]) => (
+                        <source key={format} type={`image/${format}`} srcSet={srcset} sizes="(min-width: 1024px) 40vw, 100vw" />
+                      ))}
+                      <img
+                        src={rozHeroStage.img.src}
+                        alt="Roz Washington, Los Angeles stand-up comedian, headlining on stage in a gold sequined jumpsuit with microphone in hand under blue spotlights"
+                        loading="eager"
+                        fetchPriority="high"
+                        decoding="async"
+                        width={rozHeroStage.img.w}
+                        height={rozHeroStage.img.h}
+                        className="w-full aspect-[3/4] object-cover object-top"
+                      />
+                    </picture>
                     <span
                       className="absolute -top-4 -left-4 stamp text-xs md:text-sm z-10 tag-pop"
                       style={{ ["--tag-rot" as any]: "-8deg", animationDelay: "0.7s" }}
@@ -195,11 +202,16 @@ const Index = () => {
                       Full-size photo of Roz Washington headlining live in a gold sequined jumpsuit.
                     </DialogDescription>
                   </VisuallyHidden>
-                  <img
-                    src={rozHeroStage}
-                    alt="Roz Washington headlining a stand-up comedy set on stage in a gold sequined jumpsuit with microphone in hand under blue spotlights"
-                    className="w-full h-auto max-h-[85vh] object-contain"
-                  />
+                  <picture>
+                    {Object.entries(rozHeroStage.sources).map(([format, srcset]) => (
+                      <source key={format} type={`image/${format}`} srcSet={srcset} sizes="95vw" />
+                    ))}
+                    <img
+                      src={rozHeroStage.img.src}
+                      alt="Roz Washington headlining a stand-up comedy set on stage in a gold sequined jumpsuit with microphone in hand under blue spotlights"
+                      className="w-full h-auto max-h-[85vh] object-contain"
+                    />
+                  </picture>
                 </DialogContent>
               </Dialog>
             </div>
