@@ -48,7 +48,7 @@ const quotes = [
 const Index = () => {
   const [year] = useState(new Date().getFullYear());
   const [bookingSent, setBookingSent] = useState(false);
-  const heroPhotoRef = useRef<HTMLButtonElement>(null);
+  const heroPhotoRef = useRef<HTMLDivElement>(null);
   const [tagsInView, setTagsInView] = useState(false);
 
   useEffect(() => {
