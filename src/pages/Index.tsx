@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Instagram, Facebook, Youtube, Music2, ExternalLink, Mail, ArrowDown, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
 import { MobileTabBar } from "@/components/MobileTabBar";
+import { Dialog, DialogContent, DialogTrigger, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import rozHero from "@/assets/roz-hero.jpeg";
 import rozStage from "@/assets/roz-stage.jpeg";
 import rozHeroStage from "@/assets/roz-hero-stage.png";
