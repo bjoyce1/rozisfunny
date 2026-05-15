@@ -176,16 +176,16 @@ const Index = () => {
 
             {/* Hero portrait */}
             <div
-              className="relative animate-fade-up order-first lg:order-last"
+              ref={heroPhotoRef}
+              className={`relative animate-fade-up order-first lg:order-last ${tagsInView ? "in-view" : ""}`}
               style={{ animationDelay: "0.3s", opacity: 0 }}
             >
               <Dialog>
                 <DialogTrigger asChild>
                   <button
-                    ref={heroPhotoRef}
                     type="button"
                     aria-label="Open full-size photo of Roz Washington on stage"
-                    className={`relative slab bg-ink p-2 rotate-[2deg] hover:rotate-0 transition-transform duration-500 max-w-sm mx-auto lg:max-w-none block w-full cursor-zoom-in focus:outline-none focus-visible:ring-4 focus-visible:ring-explosion ${tagsInView ? "in-view" : ""}`}
+                    className="relative slab bg-ink p-2 rotate-[2deg] hover:rotate-0 transition-transform duration-500 max-w-sm mx-auto lg:max-w-none block w-full cursor-zoom-in focus:outline-none focus-visible:ring-4 focus-visible:ring-explosion"
                   >
                     <picture>
                       {Object.entries(rozHeroStage.sources).map(([format, srcset]) => (
