@@ -98,47 +98,72 @@ const Index = () => {
 
       <main>
       {/* ============ HERO ============ */}
-      <section id="top" className="relative border-b-4 border-ink">
+      <section id="top" className="relative border-b-4 border-ink overflow-hidden">
         <div className="container relative py-16 md:py-24 lg:py-32">
-          {/* tour stamp */}
-          <div className="absolute top-6 right-6 md:top-10 md:right-10 hidden sm:block z-10">
-            <div className="stamp text-xs md:text-sm">
-              EST.<br />Apollo Night LA
+          <div className="grid lg:grid-cols-[1.4fr_1fr] gap-10 lg:gap-12 items-center">
+            <div className="relative z-10">
+              {/* tour stamp */}
+              <div className="absolute -top-6 right-0 md:top-0 md:right-0 hidden sm:block z-10">
+                <div className="stamp text-xs md:text-sm">
+                  EST.<br />Apollo Night LA
+                </div>
+              </div>
+
+              <p className="font-marker text-explosion text-lg md:text-xl mb-4 animate-scribble-in">
+                one of the most EXPLOSIVE comedians on the planet
+              </p>
+
+              <h1
+                className="font-display font-black text-ink leading-[0.85] tracking-[-0.03em]"
+                style={{ fontSize: "clamp(3.5rem, 11vw, 10rem)" }}
+              >
+                <span className="block animate-slide-up-stagger" style={{ animationDelay: "0.05s" }}>ROZ</span>
+                <span className="block animate-slide-up-stagger" style={{ animationDelay: "0.2s" }}>WASHINGTON</span>
+                <span className="block animate-slide-up-stagger text-xl md:text-2xl lg:text-3xl mt-2 tracking-normal" style={{ animationDelay: "0.35s" }}>Stand-Up Comedian & Actor</span>
+              </h1>
+
+              <div
+                className="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 animate-fade-up"
+                style={{ animationDelay: "0.5s", opacity: 0 }}
+              >
+                <a
+                  href="#book"
+                  className="slab bg-explosion text-ink font-display font-black uppercase text-xl px-8 py-4 hover-shake inline-flex items-center justify-center w-full sm:w-auto"
+                >
+                  Book Roz
+                </a>
+                <a
+                  href="#reel"
+                  className="slab bg-bone text-ink font-display font-black uppercase text-xl px-8 py-4 hover-shake inline-flex items-center justify-center w-full sm:w-auto"
+                >
+                  Watch the Reel
+                </a>
+              </div>
+            </div>
+
+            {/* Hero portrait */}
+            <div
+              className="relative animate-fade-up order-first lg:order-last"
+              style={{ animationDelay: "0.3s", opacity: 0 }}
+            >
+              <div className="relative slab bg-ink p-2 rotate-[2deg] hover:rotate-0 transition-transform duration-500 max-w-sm mx-auto lg:max-w-none">
+                <img
+                  src={rozHeroStage}
+                  alt="Roz Washington performing stand-up on stage with microphone"
+                  loading="eager"
+                  className="w-full aspect-[3/4] object-cover object-top"
+                />
+                <span className="absolute -top-4 -left-4 stamp text-xs md:text-sm rotate-[-8deg] z-10">
+                  LIVE!
+                </span>
+                <span className="absolute -bottom-4 -right-3 bg-explosion slab text-ink font-display font-black uppercase text-sm px-3 py-1 rotate-[4deg]">
+                  On Stage
+                </span>
+              </div>
             </div>
           </div>
 
-          <p className="font-marker text-explosion text-lg md:text-xl mb-4 animate-scribble-in">
-            one of the most EXPLOSIVE comedians on the planet
-          </p>
-
-          <h1
-            className="font-display font-black text-ink leading-[0.85] tracking-[-0.03em]"
-            style={{ fontSize: "clamp(3.5rem, 13vw, 12rem)" }}
-          >
-            <span className="block animate-slide-up-stagger" style={{ animationDelay: "0.05s" }}>ROZ</span>
-            <span className="block animate-slide-up-stagger" style={{ animationDelay: "0.2s" }}>WASHINGTON</span>
-            <span className="block animate-slide-up-stagger text-xl md:text-2xl lg:text-3xl mt-2 tracking-normal" style={{ animationDelay: "0.35s" }}>Stand-Up Comedian & Actor</span>
-          </h1>
-
-          <div
-            className="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 animate-fade-up"
-            style={{ animationDelay: "0.5s", opacity: 0 }}
-          >
-            <a
-              href="#book"
-              className="slab bg-explosion text-ink font-display font-black uppercase text-xl px-8 py-4 hover-shake inline-flex items-center justify-center w-full sm:w-auto"
-            >
-              Book Roz
-            </a>
-            <a
-              href="#reel"
-              className="slab bg-bone text-ink font-display font-black uppercase text-xl px-8 py-4 hover-shake inline-flex items-center justify-center w-full sm:w-auto"
-            >
-              Watch the Reel
-            </a>
-          </div>
-
-          <div className="mt-16 flex justify-end items-end gap-2 text-explosion font-marker text-lg md:text-xl">
+          <div className="mt-12 flex justify-end items-end gap-2 text-explosion font-marker text-lg md:text-xl">
             <span className="rotate-[-4deg]">scroll, scroll, scroll</span>
             <ArrowDown className="animate-bounce" size={28} />
           </div>
