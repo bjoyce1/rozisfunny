@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Instagram, Facebook, Youtube, Music2, ExternalLink, Mail, ArrowDown } from "lucide-react";
+import { Instagram, Facebook, Youtube, Music2, ExternalLink, Mail, ArrowDown, CheckCircle2 } from "lucide-react";
+import { toast } from "sonner";
 import rozHero from "@/assets/roz-hero.jpeg";
 import rozStage from "@/assets/roz-stage.jpeg";
 
@@ -42,6 +43,7 @@ const quotes = [
 
 const Index = () => {
   const [year] = useState(new Date().getFullYear());
+  const [bookingSent, setBookingSent] = useState(false);
 
   useEffect(() => {
     document.title = "Roz Washington — Stand-Up Comedian, Actor & Radio Host | Apollo Night LA";
@@ -55,12 +57,15 @@ const Index = () => {
       `Name: ${f.get("name")}\nEmail: ${f.get("email")}\nEvent date: ${f.get("date")}\nVenue / City: ${f.get("venue")}\nEvent type: ${f.get("type")}\nBudget: ${f.get("budget")}\n\n${f.get("message")}`
     );
     window.location.href = `mailto:funnyroz@gmail.com?subject=${subject}&body=${body}`;
+    setBookingSent(true);
+    toast.success("Booking request sent! Roz will be in touch soon.");
+    (e.currentTarget as HTMLFormElement).reset();
   };
 
   const handleNewsletter = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const email = new FormData(e.currentTarget).get("email");
-    alert(`Thanks! You're on the list: ${email}`);
+    toast.success(`You're on the list: ${email}`);
     (e.currentTarget as HTMLFormElement).reset();
   };
 
@@ -390,7 +395,22 @@ const Index = () => {
               clubs · corporate · private · festival
             </p>
 
-            <form onSubmit={handleBooking} className="mt-8 space-y-4">
+            {bookingSent ? (
+              <div className="mt-8 slab bg-bone p-8 text-center space-y-3 animate-fade-up">
+                <CheckCircle2 className="mx-auto text-explosion" size={48} />
+                <p className="font-display font-black text-3xl uppercase">Request Sent!</p>
+                <p className="font-sans text-ink/80">
+                  Thanks — your booking inquiry is on its way to Roz. Expect a reply within 48 hours.
+                </p>
+                <button
+                  onClick={() => setBookingSent(false)}
+                  className="font-marker text-explosion text-lg underline"
+                >
+                  send another →
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleBooking} className="mt-8 space-y-4">
               <div className="grid sm:grid-cols-2 gap-4">
                 <Field name="name" label="Name" required />
                 <Field name="email" label="Email" type="email" required />
@@ -427,6 +447,7 @@ const Index = () => {
                 Send Booking Request <Mail size={18} />
               </button>
             </form>
+            )}
           </div>
 
           <aside className="space-y-6 self-start lg:sticky lg:top-28">
