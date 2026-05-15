@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import Index from "./pages/Index";
+import PressKit from "./pages/PressKit";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -19,7 +20,8 @@ function AnimatedRoutes() {
         <Route path="/about" element={<Navigate to="/#about" replace />} />
         <Route path="/shows" element={<Navigate to="/#tour" replace />} />
         <Route path="/videos" element={<Navigate to="/#reel" replace />} />
-        <Route path="/press" element={<Navigate to="/#press" replace />} />
+        <Route path="/press" element={<PressKit />} />
+        <Route path="/press-kit" element={<PressKit />} />
         <Route path="/contact" element={<Navigate to="/#book" replace />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
