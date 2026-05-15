@@ -48,6 +48,8 @@ const quotes = [
 const Index = () => {
   const [year] = useState(new Date().getFullYear());
   const [bookingSent, setBookingSent] = useState(false);
+  const heroPhotoRef = useRef<HTMLButtonElement>(null);
+  const [tagsInView, setTagsInView] = useState(false);
 
   useEffect(() => {
     document.title = "Roz Washington — Stand-Up Comedian & Radio Host";
@@ -62,6 +64,24 @@ const Index = () => {
     return () => {
       document.head.removeChild(link);
     };
+  }, []);
+
+  useEffect(() => {
+    const el = heroPhotoRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setTagsInView(true);
+            obs.disconnect();
+          }
+        });
+      },
+      { threshold: 0.35 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
   }, []);
 
   const handleBooking = (e: React.FormEvent<HTMLFormElement>) => {
