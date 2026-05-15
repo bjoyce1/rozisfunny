@@ -47,7 +47,7 @@ const Index = () => {
   const [bookingSent, setBookingSent] = useState(false);
 
   useEffect(() => {
-    document.title = "Roz Washington — Stand-Up Comedian, Actor & Radio Host | Apollo Night LA";
+    document.title = "Roz Washington — Stand-Up Comedian & Radio Host";
   }, []);
 
   const handleBooking = (e: React.FormEvent<HTMLFormElement>) => {
@@ -95,6 +95,7 @@ const Index = () => {
         </div>
       </header>
 
+      <main>
       {/* ============ HERO ============ */}
       <section id="top" className="relative border-b-4 border-ink">
         <div className="container relative py-16 md:py-24 lg:py-32">
@@ -483,6 +484,8 @@ const Index = () => {
           </aside>
         </div>
       </section>
+
+      </main>
 
       {/* ============ FOOTER ============ */}
       <footer className="bg-ink text-bone">
