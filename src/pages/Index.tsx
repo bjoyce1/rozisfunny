@@ -174,10 +174,16 @@ const Index = () => {
                       height="1200"
                       className="w-full aspect-[3/4] object-cover object-top"
                     />
-                    <span className="absolute -top-4 -left-4 stamp text-xs md:text-sm rotate-[-8deg] z-10">
+                    <span
+                      className="absolute -top-4 -left-4 stamp text-xs md:text-sm z-10 tag-pop"
+                      style={{ ["--tag-rot" as any]: "-8deg", animationDelay: "0.7s" }}
+                    >
                       LIVE!
                     </span>
-                    <span className="absolute -bottom-4 -right-3 bg-explosion slab text-ink font-display font-black uppercase text-sm px-3 py-1 rotate-[4deg]">
+                    <span
+                      className="absolute -bottom-4 -right-3 bg-explosion slab text-ink font-display font-black uppercase text-sm px-3 py-1 tag-pop"
+                      style={{ ["--tag-rot" as any]: "4deg", animationDelay: "0.9s" }}
+                    >
                       On Stage
                     </span>
                   </button>
