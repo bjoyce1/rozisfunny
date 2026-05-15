@@ -47,7 +47,7 @@ const Index = () => {
   const [bookingSent, setBookingSent] = useState(false);
 
   useEffect(() => {
-    document.title = "Roz Washington — Stand-Up Comedian, Actor & Radio Host | Apollo Night LA";
+    document.title = "Roz Washington — Stand-Up Comedian & Radio Host";
   }, []);
 
   const handleBooking = (e: React.FormEvent<HTMLFormElement>) => {
