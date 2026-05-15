@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Instagram, Facebook, Youtube, Music2, ExternalLink, Mail, ArrowDown, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
 import { MobileTabBar } from "@/components/MobileTabBar";
@@ -48,6 +48,8 @@ const quotes = [
 const Index = () => {
   const [year] = useState(new Date().getFullYear());
   const [bookingSent, setBookingSent] = useState(false);
+  const heroPhotoRef = useRef<HTMLDivElement>(null);
+  const [tagsInView, setTagsInView] = useState(false);
 
   useEffect(() => {
     document.title = "Roz Washington — Stand-Up Comedian & Radio Host";
@@ -62,6 +64,24 @@ const Index = () => {
     return () => {
       document.head.removeChild(link);
     };
+  }, []);
+
+  useEffect(() => {
+    const el = heroPhotoRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setTagsInView(true);
+            obs.disconnect();
+          }
+        });
+      },
+      { threshold: 0.35 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
   }, []);
 
   const handleBooking = (e: React.FormEvent<HTMLFormElement>) => {
@@ -156,7 +176,8 @@ const Index = () => {
 
             {/* Hero portrait */}
             <div
-              className="relative animate-fade-up order-first lg:order-last"
+              ref={heroPhotoRef}
+              className={`relative animate-fade-up order-first lg:order-last ${tagsInView ? "in-view" : ""}`}
               style={{ animationDelay: "0.3s", opacity: 0 }}
             >
               <Dialog>
