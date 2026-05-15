@@ -395,7 +395,22 @@ const Index = () => {
               clubs · corporate · private · festival
             </p>
 
-            <form onSubmit={handleBooking} className="mt-8 space-y-4">
+            {bookingSent ? (
+              <div className="mt-8 slab bg-bone p-8 text-center space-y-3 animate-fade-up">
+                <CheckCircle2 className="mx-auto text-explosion" size={48} />
+                <p className="font-display font-black text-3xl uppercase">Request Sent!</p>
+                <p className="font-sans text-ink/80">
+                  Thanks — your booking inquiry is on its way to Roz. Expect a reply within 48 hours.
+                </p>
+                <button
+                  onClick={() => setBookingSent(false)}
+                  className="font-marker text-explosion text-lg underline"
+                >
+                  send another →
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleBooking} className="mt-8 space-y-4">
               <div className="grid sm:grid-cols-2 gap-4">
                 <Field name="name" label="Name" required />
                 <Field name="email" label="Email" type="email" required />
