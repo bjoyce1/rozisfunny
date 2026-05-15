@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Instagram, Facebook, Youtube, Music2, ExternalLink, Mail, ArrowDown, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
+import { MobileTabBar } from "@/components/MobileTabBar";
 import rozHero from "@/assets/roz-hero.jpeg";
 import rozStage from "@/assets/roz-stage.jpeg";
 
@@ -70,20 +71,27 @@ const Index = () => {
   };
 
   return (
-    <div className="bg-bone text-ink min-h-screen overflow-x-hidden">
+    <div className="bg-bone text-ink min-h-screen overflow-x-hidden pb-20 md:pb-0">
       {/* ============ NAV ============ */}
-      <header className="sticky top-0 z-50 bg-bone/90 backdrop-blur border-b-2 border-ink">
-        <div className="container flex items-center justify-between py-4">
-          <a href="#top" className="font-display font-black text-2xl tracking-tight">
+      <header className="sticky top-0 z-40 bg-bone/90 backdrop-blur border-b-2 border-ink pt-safe">
+        <div className="container flex items-center justify-between py-3 md:py-4">
+          <a href="#top" className="font-display font-black text-xl md:text-2xl tracking-tight">
             ROZ<span className="text-explosion">.</span>COM
           </a>
-          <nav className="flex items-center gap-6 font-display text-sm md:text-base font-bold uppercase">
+          <nav className="hidden md:flex items-center gap-6 font-display text-sm md:text-base font-bold uppercase">
             {navItems.map((n) => (
               <a key={n.href} href={n.href} className="hover:text-explosion transition-colors hover-shake">
                 {n.label}
               </a>
             ))}
           </nav>
+          {/* Mobile quick CTA in header */}
+          <a
+            href="#book"
+            className="md:hidden slab bg-explosion text-ink font-display font-black uppercase text-xs px-3 py-1.5"
+          >
+            Book
+          </a>
         </div>
       </header>
 
@@ -540,6 +548,7 @@ const Index = () => {
           </p>
         </div>
       </footer>
+      <MobileTabBar />
     </div>
   );
 };
