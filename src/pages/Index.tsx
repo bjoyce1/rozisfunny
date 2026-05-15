@@ -447,6 +447,7 @@ const Index = () => {
                 Send Booking Request <Mail size={18} />
               </button>
             </form>
+            )}
           </div>
 
           <aside className="space-y-6 self-start lg:sticky lg:top-28">
