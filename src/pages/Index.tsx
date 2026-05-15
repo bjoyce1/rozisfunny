@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Instagram, Facebook, Youtube, Music2, ExternalLink, Mail, ArrowDown } from "lucide-react";
+import { Instagram, Facebook, Youtube, Music2, ExternalLink, Mail, ArrowDown, CheckCircle2 } from "lucide-react";
+import { toast } from "sonner";
 import rozHero from "@/assets/roz-hero.jpeg";
 import rozStage from "@/assets/roz-stage.jpeg";
 
