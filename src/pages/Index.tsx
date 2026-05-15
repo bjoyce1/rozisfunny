@@ -7,7 +7,6 @@ import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import rozHero from "@/assets/roz-hero.jpeg";
 import rozStage from "@/assets/roz-stage.jpeg";
 import rozHeroStage from "@/assets/roz-hero-stage.png?w=480;800;1200;1600&format=avif;webp;png&as=picture";
-import rozHeroStagePreload from "@/assets/roz-hero-stage.png?w=1200&format=webp";
 
 /* ---------------- Data ---------------- */
 
