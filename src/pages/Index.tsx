@@ -152,7 +152,7 @@ const Index = () => {
               >
                 <span className="block animate-slide-up-stagger" style={{ animationDelay: "0.05s" }}>ROZ</span>
                 <span className="block animate-slide-up-stagger" style={{ animationDelay: "0.2s" }}>WASHINGTON</span>
-                <span className="block animate-slide-up-stagger text-xl md:text-2xl lg:text-3xl mt-2 tracking-normal" style={{ animationDelay: "0.35s" }}>Stand-Up Comedian & Actor</span>
+                <span className="block animate-slide-up-stagger text-xl md:text-2xl lg:text-3xl mt-2 tracking-normal" style={{ animationDelay: "0.35s" }}>Stand-Up Comedian &amp; Radio Host</span>
               </h1>
 
               <div
@@ -633,8 +633,11 @@ const Index = () => {
             <p className="font-display font-black uppercase mb-2 text-gold">On the List</p>
             <p className="font-sans text-bone/80 mb-4">Tour dates + new clips. No spam.</p>
             <form onSubmit={handleNewsletter} className="flex gap-0">
+              <label htmlFor="newsletter-email" className="sr-only">Email address for newsletter</label>
               <input
+                id="newsletter-email"
                 type="email" name="email" required placeholder="you@email.com"
+                aria-label="Email address for newsletter"
                 className="flex-1 slab border-bone bg-ink text-bone px-4 py-3 font-sans focus:outline-none placeholder:text-bone/50"
               />
               <button
