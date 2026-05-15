@@ -4,6 +4,7 @@ import { toast } from "sonner";
 import { MobileTabBar } from "@/components/MobileTabBar";
 import { Dialog, DialogContent, DialogTrigger, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import { supabase } from "@/integrations/supabase/client";
 import rozHero from "@/assets/roz-hero.jpeg";
 import rozStage from "@/assets/roz-stage.jpeg";
 import rozHeroStage from "@/assets/roz-hero-stage.png?w=480;800;1200;1600&format=avif;webp;png&as=picture";
@@ -84,24 +85,49 @@ const Index = () => {
     return () => obs.disconnect();
   }, []);
 
-  const handleBooking = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleBooking = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const f = new FormData(e.currentTarget);
-    const subject = encodeURIComponent(`Booking inquiry — ${f.get("name") || "Roz fan"}`);
-    const body = encodeURIComponent(
-      `Name: ${f.get("name")}\nEmail: ${f.get("email")}\nEvent date: ${f.get("date")}\nVenue / City: ${f.get("venue")}\nEvent type: ${f.get("type")}\nBudget: ${f.get("budget")}\n\n${f.get("message")}`
-    );
-    window.location.href = `mailto:funnyroz@gmail.com?subject=${subject}&body=${body}`;
+    const form = e.currentTarget;
+    const f = new FormData(form);
+
+    const { error } = await supabase.from("booking_inquiries").insert({
+      name: String(f.get("name") || ""),
+      email: String(f.get("email") || ""),
+      event_date: String(f.get("date") || ""),
+      venue: String(f.get("venue") || ""),
+      event_type: String(f.get("type") || ""),
+      budget: String(f.get("budget") || ""),
+      message: String(f.get("message") || ""),
+    });
+
+    if (error) {
+      console.error("Booking insert failed:", error);
+      toast.error("Couldn't send — try emailing funnyroz@gmail.com directly.");
+      return;
+    }
+
     setBookingSent(true);
     toast.success("Booking request sent! Roz will be in touch soon.");
-    (e.currentTarget as HTMLFormElement).reset();
+    form.reset();
   };
 
-  const handleNewsletter = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleNewsletter = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const email = new FormData(e.currentTarget).get("email");
+    const form = e.currentTarget;
+    const email = String(new FormData(form).get("email") || "");
+
+    const { data, error } = await supabase.functions.invoke("newsletter-subscribe", {
+      body: { email },
+    });
+
+    if (error || (data && (data as any).error)) {
+      console.error("Newsletter subscribe failed:", error || data);
+      toast.error("Couldn't subscribe. Try again or email funnyroz@gmail.com");
+      return;
+    }
+
     toast.success(`You're on the list: ${email}`);
-    (e.currentTarget as HTMLFormElement).reset();
+    form.reset();
   };
 
   return (
@@ -574,8 +600,9 @@ const Index = () => {
             </div>
             <div className="slab bg-bone p-6 space-y-2">
               <p className="font-display font-black uppercase">Or via GigSalad</p>
+              {/* TODO: replace with Roz's actual GigSalad profile URL */}
               <a
-                href="https://www.gigsalad.com/"
+                href="[GIGSALAD_URL_PLACEHOLDER]"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-marker text-explosion text-xl"
