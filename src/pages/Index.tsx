@@ -118,18 +118,18 @@ const Index = () => {
           </h1>
 
           <div
-            className="mt-10 flex flex-col sm:flex-row gap-4 animate-fade-up"
+            className="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 animate-fade-up"
             style={{ animationDelay: "0.5s", opacity: 0 }}
           >
             <a
               href="#book"
-              className="slab bg-explosion text-ink font-display font-black uppercase text-xl px-8 py-4 hover-shake inline-flex items-center justify-center"
+              className="slab bg-explosion text-ink font-display font-black uppercase text-xl px-8 py-4 hover-shake inline-flex items-center justify-center w-full sm:w-auto"
             >
               Book Roz
             </a>
             <a
               href="#reel"
-              className="slab bg-bone text-ink font-display font-black uppercase text-xl px-8 py-4 hover-shake inline-flex items-center justify-center"
+              className="slab bg-bone text-ink font-display font-black uppercase text-xl px-8 py-4 hover-shake inline-flex items-center justify-center w-full sm:w-auto"
             >
               Watch the Reel
             </a>
@@ -568,7 +568,7 @@ function Field({
         type={type}
         required={required}
         placeholder={placeholder}
-        className="w-full slab bg-bone px-4 py-3 font-sans focus:outline-none"
+        className="w-full slab bg-bone px-4 py-3 font-sans text-base focus:outline-none"
       />
     </div>
   );
