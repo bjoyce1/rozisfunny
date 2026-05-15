@@ -1,0 +1,23 @@
+# Roz Washington (rozisfunny.com)
+
+> Official site for Roz Washington — Los Angeles–based stand-up comedian, actor, writer, and co-host of Apollo Night L.A. radio. One of the most explosive comedians on the planet.
+
+The site is a single-page experience covering Roz's bio, screen and stage credits, featured stand-up clips, upcoming tour dates, press quotes, and a direct booking form for event organizers.
+
+## Pages
+
+- [Home](/): Hero, about Roz, featured reel, tour dates, press, and booking inquiry form.
+
+## Sections
+
+- [About](/#about): Bio, credits (Hump Day Comedy the Movie, Boosters LA, Pay The Lady, Apollo Night L.A., Laffaholics).
+- [Reel](/#reel): Featured stand-up clips on YouTube.
+- [Tour](/#tour): Upcoming dates at Improv Hollywood, Improv Houston, and Improv Brea.
+- [Book](/#book): Booking inquiry form — funnyroz@gmail.com.
+
+## Contact
+
+- Email: funnyroz@gmail.com
+- Instagram: https://www.instagram.com/realfunnyroz/
+- TikTok: https://tiktok.com/@rozisfunny
+- YouTube: https://youtube.com/@paytheladyproduction
