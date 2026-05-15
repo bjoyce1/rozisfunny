@@ -182,8 +182,8 @@ const Index = () => {
                       />
                     </picture>
                     <span
-                      className="absolute -top-4 -left-4 stamp text-xs md:text-sm z-10 tag-pop"
-                      style={{ ["--tag-rot" as any]: "-8deg", animationDelay: "0.7s" }}
+                      className="absolute -top-4 -left-4 stamp text-xs md:text-sm z-10 tag-pop tag-live-pulse"
+                      style={{ ["--tag-rot" as any]: "-8deg", animationDelay: "0.7s, 1.6s" }}
                     >
                       LIVE!
                     </span>

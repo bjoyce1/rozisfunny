@@ -230,6 +230,19 @@
     animation: tagWobble 0.5s ease-in-out;
   }
 
+  @keyframes tagLivePulse {
+    0%, 100% { transform: scale(1) rotate(var(--tag-rot, 0deg)); box-shadow: 0 0 0 0 hsl(var(--explosion) / 0.6); }
+    50%      { transform: scale(1.06) rotate(var(--tag-rot, 0deg)); box-shadow: 0 0 0 8px hsl(var(--explosion) / 0); }
+  }
+  .tag-live-pulse {
+    animation:
+      tagPopIn 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
+      tagLivePulse 2.2s ease-in-out 1.6s infinite;
+  }
+  .tag-live-pulse:hover {
+    animation: tagWobble 0.5s ease-in-out;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       animation-duration: 0.01ms !important;
