@@ -116,6 +116,7 @@ const Index = () => {
           >
             <span className="block animate-slide-up-stagger" style={{ animationDelay: "0.05s" }}>ROZ</span>
             <span className="block animate-slide-up-stagger" style={{ animationDelay: "0.2s" }}>WASHINGTON</span>
+            <span className="block animate-slide-up-stagger text-xl md:text-2xl lg:text-3xl mt-2 tracking-normal" style={{ animationDelay: "0.35s" }}>Stand-Up Comedian & Actor</span>
           </h1>
 
           <div
