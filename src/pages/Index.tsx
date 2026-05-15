@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Instagram, Facebook, Youtube, Music2, ExternalLink, Mail, ArrowDown, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
+import { MobileTabBar } from "@/components/MobileTabBar";
 import rozHero from "@/assets/roz-hero.jpeg";
 import rozStage from "@/assets/roz-stage.jpeg";
 
@@ -70,20 +71,27 @@ const Index = () => {
   };
 
   return (
-    <div className="bg-bone text-ink min-h-screen overflow-x-hidden">
+    <div className="bg-bone text-ink min-h-screen overflow-x-hidden pb-20 md:pb-0">
       {/* ============ NAV ============ */}
-      <header className="sticky top-0 z-50 bg-bone/90 backdrop-blur border-b-2 border-ink">
-        <div className="container flex items-center justify-between py-4">
-          <a href="#top" className="font-display font-black text-2xl tracking-tight">
+      <header className="sticky top-0 z-40 bg-bone/90 backdrop-blur border-b-2 border-ink pt-safe">
+        <div className="container flex items-center justify-between py-3 md:py-4">
+          <a href="#top" className="font-display font-black text-xl md:text-2xl tracking-tight">
             ROZ<span className="text-explosion">.</span>COM
           </a>
-          <nav className="flex items-center gap-6 font-display text-sm md:text-base font-bold uppercase">
+          <nav className="hidden md:flex items-center gap-6 font-display text-sm md:text-base font-bold uppercase">
             {navItems.map((n) => (
               <a key={n.href} href={n.href} className="hover:text-explosion transition-colors hover-shake">
                 {n.label}
               </a>
             ))}
           </nav>
+          {/* Mobile quick CTA in header */}
+          <a
+            href="#book"
+            className="md:hidden slab bg-explosion text-ink font-display font-black uppercase text-xs px-3 py-1.5"
+          >
+            Book
+          </a>
         </div>
       </header>
 
@@ -110,18 +118,18 @@ const Index = () => {
           </h1>
 
           <div
-            className="mt-10 flex flex-col sm:flex-row gap-4 animate-fade-up"
+            className="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 animate-fade-up"
             style={{ animationDelay: "0.5s", opacity: 0 }}
           >
             <a
               href="#book"
-              className="slab bg-explosion text-ink font-display font-black uppercase text-xl px-8 py-4 hover-shake inline-flex items-center justify-center"
+              className="slab bg-explosion text-ink font-display font-black uppercase text-xl px-8 py-4 hover-shake inline-flex items-center justify-center w-full sm:w-auto"
             >
               Book Roz
             </a>
             <a
               href="#reel"
-              className="slab bg-bone text-ink font-display font-black uppercase text-xl px-8 py-4 hover-shake inline-flex items-center justify-center"
+              className="slab bg-bone text-ink font-display font-black uppercase text-xl px-8 py-4 hover-shake inline-flex items-center justify-center w-full sm:w-auto"
             >
               Watch the Reel
             </a>
@@ -540,6 +548,7 @@ const Index = () => {
           </p>
         </div>
       </footer>
+      <MobileTabBar />
     </div>
   );
 };
@@ -559,7 +568,7 @@ function Field({
         type={type}
         required={required}
         placeholder={placeholder}
-        className="w-full slab bg-bone px-4 py-3 font-sans focus:outline-none"
+        className="w-full slab bg-bone px-4 py-3 font-sans text-base focus:outline-none"
       />
     </div>
   );
