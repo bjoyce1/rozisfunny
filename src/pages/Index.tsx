@@ -95,6 +95,7 @@ const Index = () => {
         </div>
       </header>
 
+      <main>
       {/* ============ HERO ============ */}
       <section id="top" className="relative border-b-4 border-ink">
         <div className="container relative py-16 md:py-24 lg:py-32">
@@ -483,6 +484,9 @@ const Index = () => {
           </aside>
         </div>
       </section>
+
+      {/* ============ FOOTER ============ */}
+      </main>
 
       {/* ============ FOOTER ============ */}
       <footer className="bg-ink text-bone">
