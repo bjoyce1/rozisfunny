@@ -71,7 +71,7 @@ const Index = () => {
   };
 
   return (
-    <div className="bg-bone text-ink min-h-screen overflow-x-hidden pb-20 md:pb-0">
+    <div className="bg-bone text-ink min-h-screen overflow-x-clip pb-20 md:pb-0">
       {/* ============ NAV ============ */}
       <header className="sticky top-0 z-40 bg-bone/90 backdrop-blur border-b-2 border-ink pt-safe">
         <div className="container flex items-center justify-between py-3 md:py-4">
