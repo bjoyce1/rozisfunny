@@ -49,6 +49,15 @@ const Index = () => {
 
   useEffect(() => {
     document.title = "Roz Washington — Stand-Up Comedian & Radio Host";
+    const link = document.createElement("link");
+    link.rel = "preload";
+    link.as = "image";
+    link.href = rozHeroStage;
+    link.fetchPriority = "high";
+    document.head.appendChild(link);
+    return () => {
+      document.head.removeChild(link);
+    };
   }, []);
 
   const handleBooking = (e: React.FormEvent<HTMLFormElement>) => {
