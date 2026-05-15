@@ -43,6 +43,7 @@ const quotes = [
 
 const Index = () => {
   const [year] = useState(new Date().getFullYear());
+  const [bookingSent, setBookingSent] = useState(false);
 
   useEffect(() => {
     document.title = "Roz Washington — Stand-Up Comedian, Actor & Radio Host | Apollo Night LA";
@@ -56,12 +57,15 @@ const Index = () => {
       `Name: ${f.get("name")}\nEmail: ${f.get("email")}\nEvent date: ${f.get("date")}\nVenue / City: ${f.get("venue")}\nEvent type: ${f.get("type")}\nBudget: ${f.get("budget")}\n\n${f.get("message")}`
     );
     window.location.href = `mailto:funnyroz@gmail.com?subject=${subject}&body=${body}`;
+    setBookingSent(true);
+    toast.success("Booking request sent! Roz will be in touch soon.");
+    (e.currentTarget as HTMLFormElement).reset();
   };
 
   const handleNewsletter = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const email = new FormData(e.currentTarget).get("email");
-    alert(`Thanks! You're on the list: ${email}`);
+    toast.success(`You're on the list: ${email}`);
     (e.currentTarget as HTMLFormElement).reset();
   };
 
