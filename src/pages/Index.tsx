@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Instagram, Facebook, Youtube, Music2, ExternalLink, Mail, ArrowDown, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
 import { MobileTabBar } from "@/components/MobileTabBar";
+import { Dialog, DialogContent, DialogTrigger, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import rozHero from "@/assets/roz-hero.jpeg";
 import rozStage from "@/assets/roz-stage.jpeg";
 import rozHeroStage from "@/assets/roz-hero-stage.png";
@@ -155,24 +157,45 @@ const Index = () => {
               className="relative animate-fade-up order-first lg:order-last"
               style={{ animationDelay: "0.3s", opacity: 0 }}
             >
-              <div className="relative slab bg-ink p-2 rotate-[2deg] hover:rotate-0 transition-transform duration-500 max-w-sm mx-auto lg:max-w-none">
-                <img
-                  src={rozHeroStage}
-                  alt="Roz Washington, Los Angeles stand-up comedian, headlining on stage in a gold sequined jumpsuit with microphone in hand under blue spotlights"
-                  loading="eager"
-                  fetchPriority="high"
-                  decoding="async"
-                  width="900"
-                  height="1200"
-                  className="w-full aspect-[3/4] object-cover object-top"
-                />
-                <span className="absolute -top-4 -left-4 stamp text-xs md:text-sm rotate-[-8deg] z-10">
-                  LIVE!
-                </span>
-                <span className="absolute -bottom-4 -right-3 bg-explosion slab text-ink font-display font-black uppercase text-sm px-3 py-1 rotate-[4deg]">
-                  On Stage
-                </span>
-              </div>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <button
+                    type="button"
+                    aria-label="Open full-size photo of Roz Washington on stage"
+                    className="relative slab bg-ink p-2 rotate-[2deg] hover:rotate-0 transition-transform duration-500 max-w-sm mx-auto lg:max-w-none block w-full cursor-zoom-in focus:outline-none focus-visible:ring-4 focus-visible:ring-explosion"
+                  >
+                    <img
+                      src={rozHeroStage}
+                      alt="Roz Washington, Los Angeles stand-up comedian, headlining on stage in a gold sequined jumpsuit with microphone in hand under blue spotlights"
+                      loading="eager"
+                      fetchPriority="high"
+                      decoding="async"
+                      width="900"
+                      height="1200"
+                      className="w-full aspect-[3/4] object-cover object-top"
+                    />
+                    <span className="absolute -top-4 -left-4 stamp text-xs md:text-sm rotate-[-8deg] z-10">
+                      LIVE!
+                    </span>
+                    <span className="absolute -bottom-4 -right-3 bg-explosion slab text-ink font-display font-black uppercase text-sm px-3 py-1 rotate-[4deg]">
+                      On Stage
+                    </span>
+                  </button>
+                </DialogTrigger>
+                <DialogContent className="max-w-[95vw] md:max-w-4xl bg-ink border-4 border-explosion p-2 sm:p-3">
+                  <VisuallyHidden>
+                    <DialogTitle>Roz Washington on stage</DialogTitle>
+                    <DialogDescription>
+                      Full-size photo of Roz Washington headlining live in a gold sequined jumpsuit.
+                    </DialogDescription>
+                  </VisuallyHidden>
+                  <img
+                    src={rozHeroStage}
+                    alt="Roz Washington headlining a stand-up comedy set on stage in a gold sequined jumpsuit with microphone in hand under blue spotlights"
+                    className="w-full h-auto max-h-[85vh] object-contain"
+                  />
+                </DialogContent>
+              </Dialog>
             </div>
           </div>
 
