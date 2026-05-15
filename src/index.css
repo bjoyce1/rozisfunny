@@ -216,4 +216,23 @@
       transition-duration: 0.01ms !important;
     }
   }
+
+  /* Themed scrollbar for webkit browsers */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--explosion) / 0.6);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--explosion));
+  }
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
 }
