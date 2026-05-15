@@ -202,11 +202,16 @@ const Index = () => {
                       Full-size photo of Roz Washington headlining live in a gold sequined jumpsuit.
                     </DialogDescription>
                   </VisuallyHidden>
-                  <img
-                    src={rozHeroStage}
-                    alt="Roz Washington headlining a stand-up comedy set on stage in a gold sequined jumpsuit with microphone in hand under blue spotlights"
-                    className="w-full h-auto max-h-[85vh] object-contain"
-                  />
+                  <picture>
+                    {Object.entries(rozHeroStage.sources).map(([format, srcset]) => (
+                      <source key={format} type={`image/${format}`} srcSet={srcset} sizes="95vw" />
+                    ))}
+                    <img
+                      src={rozHeroStage.img.src}
+                      alt="Roz Washington headlining a stand-up comedy set on stage in a gold sequined jumpsuit with microphone in hand under blue spotlights"
+                      className="w-full h-auto max-h-[85vh] object-contain"
+                    />
+                  </picture>
                 </DialogContent>
               </Dialog>
             </div>
